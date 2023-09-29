@@ -1,9 +1,9 @@
 package processMessages
 
 import (
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/network/buffers"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/network/buffers"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 type TrusteeRouter struct {

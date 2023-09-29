@@ -1,10 +1,10 @@
 package common
 
 import (
-	"github.com/simonlangowski/lightning1/crypto/token"
-	"github.com/simonlangowski/lightning1/network/messages"
+	"github.com/mirrironline/trellis/crypto/token"
+	"github.com/mirrironline/trellis/network/messages"
 
-	"github.com/simonlangowski/lightning1/crypto"
+	"github.com/mirrironline/trellis/crypto"
 )
 
 // See shuffleMessages.go as well

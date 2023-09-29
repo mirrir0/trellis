@@ -1,9 +1,9 @@
 package prepareMessages
 
 import (
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/crypto/token"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/crypto/token"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 // calculate the size of dummy messages

@@ -4,7 +4,7 @@ import (
 	"crypto/elliptic"
 	"math/big"
 
-	"github.com/simonlangowski/lightning1/errors"
+	"github.com/mirrironline/trellis/errors"
 )
 
 var byteLen int

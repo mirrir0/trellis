@@ -4,10 +4,10 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/network/buffers"
-	"github.com/simonlangowski/lightning1/network/messages"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/config"
+	"github.com/mirrironline/trellis/network/buffers"
+	"github.com/mirrironline/trellis/network/messages"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 var numWorkers = runtime.NumCPU()

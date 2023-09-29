@@ -10,9 +10,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/simonlangowski/lightning1/config"
-	coord "github.com/simonlangowski/lightning1/coordinator/messages"
-	"github.com/simonlangowski/lightning1/network/messages"
+	"github.com/mirrironline/trellis/config"
+	coord "github.com/mirrironline/trellis/coordinator/messages"
+	"github.com/mirrironline/trellis/network/messages"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )

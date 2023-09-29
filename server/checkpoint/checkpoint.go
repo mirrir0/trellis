@@ -3,11 +3,11 @@ package checkpoint
 import (
 	"sync"
 
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/network/messages"
-	"github.com/simonlangowski/lightning1/network/synchronization"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/network/messages"
+	"github.com/mirrironline/trellis/network/synchronization"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 type VerificationKeyTable struct {

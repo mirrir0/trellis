@@ -1,8 +1,8 @@
 package pairing
 
 import (
-	"github.com/simonlangowski/lightning1/crypto/pairing/kyber_wrap"
-	"github.com/simonlangowski/lightning1/crypto/pairing/mcl"
+	"github.com/mirrironline/trellis/crypto/pairing/kyber_wrap"
+	"github.com/mirrironline/trellis/crypto/pairing/mcl"
 )
 
 var G2GeneratorPrecompute *Precompute

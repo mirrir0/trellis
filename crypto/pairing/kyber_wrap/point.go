@@ -4,7 +4,7 @@ import (
 	"crypto/cipher"
 	"math/big"
 
-	"github.com/simonlangowski/lightning1/crypto/pairing/mcl"
+	"github.com/mirrironline/trellis/crypto/pairing/mcl"
 	"go.dedis.ch/kyber/v3"
 	"go.dedis.ch/kyber/v3/util/random"
 )

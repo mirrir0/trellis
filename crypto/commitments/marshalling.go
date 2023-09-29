@@ -1,6 +1,6 @@
 package commitments
 
-import "github.com/simonlangowski/lightning1/errors"
+import "github.com/mirrironline/trellis/errors"
 
 func (c *Commitment) Len() int {
 	return COMMIT_SIZE

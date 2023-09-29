@@ -13,9 +13,9 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/network/messages"
+	"github.com/mirrironline/trellis/config"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/network/messages"
 )
 
 // have each connect to half and use bidirectional connections

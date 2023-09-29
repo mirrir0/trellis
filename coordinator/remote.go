@@ -7,8 +7,8 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/network"
+	"github.com/mirrironline/trellis/config"
+	"github.com/mirrironline/trellis/network"
 )
 
 const ServerProcessName = "server"

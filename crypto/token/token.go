@@ -3,9 +3,9 @@ package token
 import (
 	"crypto/sha256"
 
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/crypto/pairing/mcl"
-	"github.com/simonlangowski/lightning1/errors"
+	"github.com/mirrironline/trellis/config"
+	"github.com/mirrironline/trellis/crypto/pairing/mcl"
+	"github.com/mirrironline/trellis/errors"
 )
 
 var TOKEN_SIZE = mcl.G1_LEN

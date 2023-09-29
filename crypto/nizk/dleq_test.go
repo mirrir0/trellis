@@ -8,7 +8,7 @@ import (
 	_ "crypto/sha256"
 	"testing"
 
-	"github.com/simonlangowski/lightning1/crypto/ec"
+	"github.com/mirrironline/trellis/crypto/ec"
 )
 
 func setup() (*ec.ScalarElement, *ec.Point, *ec.Point, error) {

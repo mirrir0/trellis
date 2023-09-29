@@ -3,10 +3,10 @@ package processMessages
 import (
 	"sync"
 
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/config"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 // Information about an established key path

@@ -9,11 +9,11 @@ import (
 	"time"
 
 	"github.com/alexflint/go-arg"
-	"github.com/simonlangowski/lightning1/client"
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/coordinator"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/network"
+	"github.com/mirrironline/trellis/client"
+	"github.com/mirrironline/trellis/config"
+	"github.com/mirrironline/trellis/coordinator"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/network"
 )
 
 type Args struct {

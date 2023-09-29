@@ -3,10 +3,10 @@ package prepareMessages
 import (
 	"encoding/binary"
 
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/crypto/pairing/mcl"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/crypto/pairing/mcl"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 type NewClientRequest struct {

@@ -8,9 +8,9 @@ import (
 	"crypto/x509"
 	"sync"
 
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/network/messages"
+	"github.com/mirrironline/trellis/config"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/network/messages"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )

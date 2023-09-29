@@ -1,4 +1,4 @@
-module github.com/simonlangowski/lightning1
+module github.com/mirrironline/trellis
 
 go 1.16
 

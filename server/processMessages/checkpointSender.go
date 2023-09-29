@@ -3,13 +3,13 @@ package processMessages
 import (
 	"sync"
 
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/network"
-	"github.com/simonlangowski/lightning1/network/buffers"
-	"github.com/simonlangowski/lightning1/network/messages"
-	"github.com/simonlangowski/lightning1/server/checkpoint"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/network"
+	"github.com/mirrironline/trellis/network/buffers"
+	"github.com/mirrironline/trellis/network/messages"
+	"github.com/mirrironline/trellis/server/checkpoint"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 type Progress struct {

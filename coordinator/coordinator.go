@@ -11,13 +11,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/simonlangowski/lightning1/config"
-	coord "github.com/simonlangowski/lightning1/coordinator/messages"
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/crypto/pairing/mcl"
-	"github.com/simonlangowski/lightning1/crypto/token"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/server/prepareMessages"
+	"github.com/mirrironline/trellis/config"
+	coord "github.com/mirrironline/trellis/coordinator/messages"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/crypto/pairing/mcl"
+	"github.com/mirrironline/trellis/crypto/token"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/server/prepareMessages"
 )
 
 // The coordinator simulates the glocal clock time when the round begins, the time when receipts should have been received by, etc.

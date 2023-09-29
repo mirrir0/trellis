@@ -6,12 +6,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/network/buffers"
-	"github.com/simonlangowski/lightning1/network/messages"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/config"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/network/buffers"
+	"github.com/mirrironline/trellis/network/messages"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 // Should batch size be number of messages, or a number of bytes?

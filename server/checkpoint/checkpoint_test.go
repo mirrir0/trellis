@@ -3,7 +3,7 @@ package checkpoint
 import (
 	"testing"
 
-	"github.com/simonlangowski/lightning1/crypto"
+	"github.com/mirrironline/trellis/crypto"
 )
 
 func TestDecryptionLogic(t *testing.T) {

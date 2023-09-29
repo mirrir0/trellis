@@ -4,15 +4,15 @@ import (
 	"bytes"
 	"crypto/rand"
 
-	"github.com/simonlangowski/lightning1/config"
-	coord "github.com/simonlangowski/lightning1/coordinator/messages"
-	"github.com/simonlangowski/lightning1/crypto"
-	"github.com/simonlangowski/lightning1/crypto/pairing/mcl"
-	"github.com/simonlangowski/lightning1/crypto/token"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/network"
-	"github.com/simonlangowski/lightning1/network/messages"
-	"github.com/simonlangowski/lightning1/server/common"
+	"github.com/mirrironline/trellis/config"
+	coord "github.com/mirrironline/trellis/coordinator/messages"
+	"github.com/mirrironline/trellis/crypto"
+	"github.com/mirrironline/trellis/crypto/pairing/mcl"
+	"github.com/mirrironline/trellis/crypto/token"
+	"github.com/mirrironline/trellis/errors"
+	"github.com/mirrironline/trellis/network"
+	"github.com/mirrironline/trellis/network/messages"
+	"github.com/mirrironline/trellis/server/common"
 )
 
 type Client struct {

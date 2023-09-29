@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"math/big"
 
-	"github.com/simonlangowski/lightning1/crypto/ec"
-	"github.com/simonlangowski/lightning1/errors"
+	"github.com/mirrironline/trellis/crypto/ec"
+	"github.com/mirrironline/trellis/errors"
 )
 
 func SigningCurveScalarAdd(dest *big.Int, src *big.Int) *big.Int {

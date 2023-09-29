@@ -5,7 +5,7 @@ import (
 	"crypto/cipher"
 	"encoding/binary"
 
-	"github.com/simonlangowski/lightning1/errors"
+	"github.com/mirrironline/trellis/errors"
 )
 
 // derived from box.SecretSeal and box.SecretOpen

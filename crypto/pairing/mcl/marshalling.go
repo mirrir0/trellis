@@ -1,6 +1,6 @@
 package mcl
 
-import "github.com/simonlangowski/lightning1/errors"
+import "github.com/mirrironline/trellis/errors"
 
 var FR_LEN int
 var G1_LEN int

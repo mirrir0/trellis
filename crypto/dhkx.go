@@ -4,7 +4,7 @@ import (
 	"crypto/rand"
 
 	"filippo.io/edwards25519"
-	"github.com/simonlangowski/lightning1/errors"
+	"github.com/mirrironline/trellis/errors"
 )
 
 const KEY_SIZE = VERIFICATION_KEY_SIZE
