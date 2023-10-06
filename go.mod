@@ -2,8 +2,12 @@ module github.com/mirrironline/trellis
 
 go 1.16
 
+// temp hack!
+replace github.com/31333337/repo/pb => ./pb
+
 require (
 	filippo.io/edwards25519 v1.0.0-rc.1
+	github.com/31333337/repo/pb v0.0.0-00010101000000-000000000000
 	github.com/alexflint/go-arg v1.4.2
 	github.com/gonum/blas v0.0.0-20181208220705-f22b278b28ac // indirect
 	github.com/gonum/floats v0.0.0-20181209220543-c233463c7e82 // indirect
@@ -18,5 +22,5 @@ require (
 	golang.org/x/exp v0.0.0-20220104160115-025e73f80486 // indirect
 	gonum.org/v1/plot v0.10.0
 	google.golang.org/grpc v1.40.0
-	google.golang.org/protobuf v1.27.1
+	google.golang.org/protobuf v1.30.0
 )

@@ -11,6 +11,7 @@ import (
 	"runtime"
 	"sync"
 
+	"github.com/mirrironline/trellis/cmd/xtrellis/gateway"
 	"github.com/mirrironline/trellis/config"
 	coord "github.com/mirrironline/trellis/coordinator/messages"
 	"github.com/mirrironline/trellis/crypto/token"
@@ -125,6 +126,12 @@ func (c *ClientRunner) ClientStart(_ context.Context, i *coord.RoundInfo) (*coor
 					}
 					m := make([]byte, i.MessageSize)
 					binary.LittleEndian.PutUint64(m, uint64(id))
+
+					// gateway simulation
+					if gateway.Enable {
+						m, _ = gateway.GetMessageForClient(i, id)
+					}
+
 					done <- cli.SendLightningMessage(c.Caller, cli.PathKeys, m)
 				}
 			}(id)
