@@ -129,7 +129,7 @@ func (c *ClientRunner) ClientStart(_ context.Context, i *coord.RoundInfo) (*coor
 
 					// gateway simulation
 					if gateway.Enable {
-						m, _ = gateway.GetMessageForClient(i, id)
+						m, _ = gateway.GetMessageForClient(id)
 					}
 
 					done <- cli.SendLightningMessage(c.Caller, cli.PathKeys, m)
