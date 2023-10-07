@@ -7,9 +7,9 @@ import (
 	"log"
 	"net/http"
 
-	apiv1 "github.com/31333337/repo/pb/gen/proto/go/api/v1"
-	"github.com/31333337/repo/pb/gen/proto/go/api/v1/apiv1connect"
 	"github.com/bufbuild/connect-go"
+	apiv1 "github.com/mirrironline/trellis/pb/gen/proto/go/api/v1"
+	"github.com/mirrironline/trellis/pb/gen/proto/go/api/v1/apiv1connect"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"

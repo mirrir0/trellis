@@ -1,4 +1,4 @@
-module github.com/31333337/repo/pb
+module github.com/mirrironline/trellis/pb
 
 go 1.20
 
