@@ -9,13 +9,13 @@ import (
 
 	"github.com/alexflint/go-arg"
 	"github.com/mirrironline/trellis/client"
-	"github.com/mirrironline/trellis/cmd/xtrellis/gateway"
-	"github.com/mirrironline/trellis/cmd/xtrellis/utils"
 	"github.com/mirrironline/trellis/config"
 	"github.com/mirrironline/trellis/coordinator"
 	"github.com/mirrironline/trellis/errors"
 	"github.com/mirrironline/trellis/network"
 	"github.com/mirrironline/trellis/server"
+	"github.com/mirrironline/trellis/xtrellis/gateway"
+	"github.com/mirrironline/trellis/xtrellis/utils"
 )
 
 type Args struct {
