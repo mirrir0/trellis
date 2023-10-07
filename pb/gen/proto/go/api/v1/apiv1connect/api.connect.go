@@ -7,8 +7,8 @@ package apiv1connect
 import (
 	context "context"
 	errors "errors"
-	v1 "github.com/mirrironline/trellis/pb/gen/proto/go/api/v1"
 	connect_go "github.com/bufbuild/connect-go"
+	v1 "github.com/mirrironline/trellis/pb/gen/proto/go/api/v1"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	http "net/http"
 	strings "strings"
