@@ -8,26 +8,23 @@ scriptdir=$(cd $(dirname $0); pwd -P)
 sourcedir=$(cd $scriptdir/..; pwd -P)
 . $scriptdir/shlibs/os.sh
 
+mkdir $sourcedir/lib
+
 cd $tmpdir
 git clone https://github.com/herumi/mcl
 cd mcl/
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+sudo cmake --build build --target install
 # git checkout 3130df5 #herumi/mcl v1.52
-if [ "$OS" = "Linux" ]; then
-    echo "Building for Linux"
-    cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-    cmake --build build
-    sudo cmake --build build --target install
-    sudo ldconfig
+# if [ "$OS" = "Linux" ]; then
+#     echo "Building for Linux"
+#     # sudo ldconfig
 ## on M1 there is not much info on how to replace ldconfig
 ## it's deprecated and might not be needed in Darwin, MacOS's case.
-elif [ "$(uname)" = "Darwin" ]; then
-    echo "Building for MacOS"
-    mkdir build
-    cd build
-    cmake ..
-    make
-    sudo update_dyld_shared_cache
-fi
+# elif [ "$(uname)" = "Darwin" ]; then
+cp -r lib/* $sourcedir/lib/
+# fi
 
 #(
 #    cd $sourcedir/
