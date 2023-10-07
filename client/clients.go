@@ -11,7 +11,6 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/mirrironline/trellis/cmd/xtrellis/gateway"
 	"github.com/mirrironline/trellis/config"
 	coord "github.com/mirrironline/trellis/coordinator/messages"
 	"github.com/mirrironline/trellis/crypto/token"
@@ -19,6 +18,7 @@ import (
 	"github.com/mirrironline/trellis/network"
 	"github.com/mirrironline/trellis/server/common"
 	"github.com/mirrironline/trellis/server/prepareMessages"
+	"github.com/mirrironline/trellis/xtrellis/gateway"
 )
 
 // Simulates multiple clients

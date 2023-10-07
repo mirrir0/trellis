@@ -7,7 +7,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/alexflint/go-arg"
+	arg "github.com/alexflint/go-arg"
 	"github.com/mirrironline/trellis/client"
 	"github.com/mirrironline/trellis/config"
 	"github.com/mirrironline/trellis/coordinator"
