@@ -19,7 +19,7 @@ import (
 	"github.com/mirrironline/trellis/errors"
 	"github.com/mirrironline/trellis/server/prepareMessages"
 	"github.com/mirrironline/trellis/xtrellis/gateway"
-	"github.rom/mirrironline/trellis/xtrellis/utils"
+	"github.com/mirrironline/trellis/xtrellis/utils"
 )
 
 // The coordinator simulates the glocal clock time when the round begins, the time when receipts should have been received by, etc.
