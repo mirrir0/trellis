@@ -8,7 +8,7 @@ scriptdir=$(cd $(dirname $0); pwd -P)
 sourcedir=$(cd $scriptdir/..; pwd -P)
 . $scriptdir/shlibs/os.sh
 
-mkdir $sourcedir/lib
+mkdir -p $sourcedir/lib
 
 cd $tmpdir
 git clone https://github.com/herumi/mcl
