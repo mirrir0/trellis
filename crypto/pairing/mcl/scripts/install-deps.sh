@@ -23,7 +23,8 @@ sudo cmake --build build --target install
 ## on M1 there is not much info on how to replace ldconfig
 ## it's deprecated and might not be needed in Darwin, MacOS's case.
 # elif [ "$(uname)" = "Darwin" ]; then
-cp -r lib/* $sourcedir/lib/
+echo $(pwd)
+cp -r ${PWD}/build/lib/* $sourcedir/lib/
 # fi
 
 #(
