@@ -8,22 +8,14 @@ import (
 	"time"
 
 	"github.com/alexflint/go-arg"
-<<<<<<< HEAD
 	"github.com/mirrironline/trellis/client"
+	"github.com/mirrironline/trellis/cmd/xtrellis/gateway"
+	"github.com/mirrironline/trellis/cmd/xtrellis/utils"
 	"github.com/mirrironline/trellis/config"
 	"github.com/mirrironline/trellis/coordinator"
 	"github.com/mirrironline/trellis/errors"
 	"github.com/mirrironline/trellis/network"
-=======
-	"github.com/simonlangowski/lightning1/client"
-	"github.com/simonlangowski/lightning1/cmd/xtrellis/gateway"
-	"github.com/simonlangowski/lightning1/cmd/xtrellis/utils"
-	"github.com/simonlangowski/lightning1/config"
-	"github.com/simonlangowski/lightning1/coordinator"
-	"github.com/simonlangowski/lightning1/errors"
-	"github.com/simonlangowski/lightning1/network"
-	"github.com/simonlangowski/lightning1/server"
->>>>>>> upstream/develop
+	"github.com/mirrironline/trellis/server"
 )
 
 type Args struct {

@@ -16,3 +16,5 @@ cmd/experiments/*.list
 cmd/*/*.log
 errors/*.log
 cmd/testnet2/testnet2
+
+.vscode
