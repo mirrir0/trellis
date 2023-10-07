@@ -11,15 +11,21 @@ sourcedir=$(cd $scriptdir/..; pwd -P)
 cd $tmpdir
 git clone https://github.com/herumi/mcl
 cd mcl/
-git checkout 3130df5 #herumi/mcl v1.52
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build
-sudo cmake --build build --target install
+# git checkout 3130df5 #herumi/mcl v1.52
 if [ "$OS" = "Linux" ]; then
+    echo "Building for Linux"
+    cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+    cmake --build build
+    sudo cmake --build build --target install
     sudo ldconfig
 ## on M1 there is not much info on how to replace ldconfig
 ## it's deprecated and might not be needed in Darwin, MacOS's case.
-elif [ "$OS" = "Darwin" ]; then
+elif [ "$(uname)" = "Darwin" ]; then
+    echo "Building for MacOS"
+    mkdir build
+    cd build
+    cmake ..
+    make
     sudo update_dyld_shared_cache
 fi
 
