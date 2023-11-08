@@ -10,10 +10,11 @@ import (
 
 	arg "github.com/alexflint/go-arg"
 
-	"github.com/31333337/bmrng/go/0kn/pkg/utils"
 	"github.com/31333337/bmrng/go/0kn/pkg/gateway"
+	"github.com/31333337/bmrng/go/0kn/pkg/utils"
 	"github.com/31333337/bmrng/go/trellis/config"
 	"github.com/31333337/bmrng/go/trellis/coordinator"
+	"go.uber.org/zap"
 )
 
 const (
@@ -24,8 +25,10 @@ const (
 	NETWORK_TYPE_LOCAL
 )
 
-func LaunchCoordinator(args ArgsCoordinator, argParser *arg.Parser) {
-	processArgs(&args, argParser)
+func LaunchCoordinator(args ArgsCoordinator, argParser *arg.Parser, logger *zap.Logger) {
+	logger.Info("Started Launch Coordinator")
+	logger.Sync()
+	processArgs(&args, argParser, logger)
 
 	switch {
 	case args.Config != nil:
@@ -39,7 +42,8 @@ func LaunchCoordinator(args ArgsCoordinator, argParser *arg.Parser) {
 	}
 }
 
-func processArgs(args *ArgsCoordinator, argParser *arg.Parser) {
+func processArgs(args *ArgsCoordinator, argParser *arg.Parser, logger *zap.Logger) {
+
 	if args.GroupSize == 0 {
 		if args.F != 0 {
 			if args.NumGroups != 0 {
@@ -84,7 +88,12 @@ func processArgs(args *ArgsCoordinator, argParser *arg.Parser) {
 		args.NumClientServers = 0
 	}
 
-	log.Printf("%+v", args)
+	sugar := logger.Sugar()
+	defer sugar.Sync()
+	sugar.Infow(
+		"args passed to xtrellis",
+		"args: %v", args,
+	)
 }
 
 func setupNetwork(args ArgsCoordinator) *coordinator.CoordinatorNetwork {

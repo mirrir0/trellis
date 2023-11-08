@@ -6,6 +6,8 @@ import (
 
 	arg "github.com/alexflint/go-arg"
 
+	"go.uber.org/zap"
+
 	"github.com/31333337/bmrng/go/0kn/pkg/utils"
 	"github.com/31333337/bmrng/go/trellis/client"
 	"github.com/31333337/bmrng/go/trellis/config"
@@ -15,22 +17,27 @@ import (
 )
 
 // from cmd/server/server.go
-func LaunchServer(args ArgsServer) {
+func LaunchServer(args ArgsServer, logger *zap.Logger) {
 	serversFile := args.ServerFile
 	groupsFile := args.GroupFile
 	addr := args.Addr
 	errors.Addr = addr
 
-	log.Printf("Launching server with address %s", addr)
+	sugar := logger.Sugar()
+	defer sugar.Sync()
+	sugar.Infow(
+		"Launching server",
+		"address %s", addr,
+	)
 
 	servers, err := config.UnmarshalServersFromFile(serversFile)
 	if err != nil {
-		log.Fatalf("Could not read servers file %s", serversFile)
+		sugar.Fatalf("Could not read servers file %s", serversFile)
 	}
 
 	groups, err := config.UnmarshalGroupsFromFile(groupsFile)
 	if err != nil {
-		log.Fatalf("Could not read group file %s", groupsFile)
+		sugar.Fatalf("Could not read group file %s", groupsFile)
 	}
 
 	// will start in blocked state
@@ -43,14 +50,19 @@ func LaunchServer(args ArgsServer) {
 }
 
 // from cmd/client/client.go
-func LaunchClient(args ArgsClient) {
+func LaunchClient(args ArgsClient, logger *zap.Logger) {
 	serversFile := args.ServerFile
 	groupsFile := args.GroupFile
 	clientsFile := args.ClientFile
 	addr := args.Addr
 	errors.Addr = addr
 
-	log.Printf("Launching client with address %s", addr)
+	sugar := logger.Sugar()
+	defer sugar.Sync()
+	sugar.Infow(
+		"Launching client",
+		"address %s", addr,
+	)
 
 	servers, err := config.UnmarshalServersFromFile(serversFile)
 	if err != nil {
@@ -87,24 +99,31 @@ func main() {
 	utils.SetDebugLogEnabled(args.Debug)
 	utils.SetDebugLogCallerEnabled(args.DebugCaller)
 
+	logger := utils.InitLogging()
+
 	////////////////////////////////////////////////////////////////////////
 	// change current working directory for trellis hardcoded paths TODO
 	////////////////////////////////////////////////////////////////////////
+	// TODO: handle this cleanly with a config file(?)
 	trellisCoordinatorDirectory := "../../../trellis/cmd/coordinator/"
 	if err := os.Chdir(trellisCoordinatorDirectory); err != nil {
-		log.Println("Failed to change the working directory:", err)
+		sugar := logger.Sugar()
+		sugar.Fatalw(
+			"Failed to change the working directory",
+			"error: %v", err,
+		)
+		sugar.Sync()
 		return
 	}
-
 	switch {
 	case args.Coordinator != nil:
-		LaunchCoordinator(*args.Coordinator, argParser)
+		LaunchCoordinator(*args.Coordinator, argParser, logger)
 
 	case args.Client != nil:
-		LaunchClient(*args.Client)
+		LaunchClient(*args.Client, logger)
 
 	case args.Server != nil:
-		LaunchServer(*args.Server)
+		LaunchServer(*args.Server, logger)
 
 	default:
 		argParser.WriteHelp(os.Stdout)
