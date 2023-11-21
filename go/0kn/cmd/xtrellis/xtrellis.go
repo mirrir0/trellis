@@ -12,6 +12,7 @@ import (
 	"github.com/31333337/bmrng/go/0kn/pkg/utils"
 )
 
+// set the working directory from env var and change to the directory
 func setWorkingDirectory() {
 	// get working directory from env var, ensure set for children processes
 	workingDir := os.Getenv("_0KN_WORKDIR")

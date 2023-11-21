@@ -22,7 +22,6 @@ func LaunchServer(args ArgsServer) {
 
 // from trellis/cmd/server/
 func runServer(args ArgsServer) {
-
 	serversFile := args.ServerFile
 	groupsFile := args.GroupFile
 	addr := args.Addr
