@@ -6,8 +6,6 @@ import (
 
 	arg "github.com/alexflint/go-arg"
 
-	"go.uber.org/zap"
-
 	"github.com/31333337/bmrng/go/0kn/pkg/utils"
 	"github.com/31333337/bmrng/go/trellis/client"
 	"github.com/31333337/bmrng/go/trellis/config"
@@ -17,12 +15,13 @@ import (
 )
 
 // from cmd/server/server.go
-func LaunchServer(args ArgsServer, logger *zap.Logger) {
+func LaunchServer(args ArgsServer) {
 	serversFile := args.ServerFile
 	groupsFile := args.GroupFile
 	addr := args.Addr
 	errors.Addr = addr
 
+	logger := utils.InitLogging()
 	sugar := logger.Sugar()
 	defer sugar.Sync()
 	sugar.Infow(
@@ -50,13 +49,14 @@ func LaunchServer(args ArgsServer, logger *zap.Logger) {
 }
 
 // from cmd/client/client.go
-func LaunchClient(args ArgsClient, logger *zap.Logger) {
+func LaunchClient(args ArgsClient) {
 	serversFile := args.ServerFile
 	groupsFile := args.GroupFile
 	clientsFile := args.ClientFile
 	addr := args.Addr
 	errors.Addr = addr
 
+	logger := utils.InitLogging()
 	sugar := logger.Sugar()
 	defer sugar.Sync()
 	sugar.Infow(
@@ -120,10 +120,10 @@ func main() {
 		LaunchCoordinator(*args.Coordinator, argParser, logger)
 
 	case args.Client != nil:
-		LaunchClient(*args.Client, logger)
+		LaunchClient(*args.Client)
 
 	case args.Server != nil:
-		LaunchServer(*args.Server, logger)
+		LaunchServer(*args.Server)
 
 	default:
 		argParser.WriteHelp(os.Stdout)

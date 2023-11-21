@@ -4,13 +4,12 @@ package network
 
 import (
 	"crypto/tls"
-	"log"
 	"net"
 	"os"
 	"os/signal"
 	"syscall"
 
-	"github.com/31333337/bmrng/go/0kn/pkg/util"
+	"github.com/31333337/bmrng/go/0kn/pkg/utils"
 	"github.com/31333337/bmrng/go/trellis/config"
 	coord "github.com/31333337/bmrng/go/trellis/coordinator/messages"
 	"github.com/31333337/bmrng/go/trellis/network/messages"
@@ -19,7 +18,7 @@ import (
 )
 
 func RunServer(handler messages.MessageHandlersServer, coordHandler coord.CoordinatorHandlerServer, servercfgs map[int64]*config.Server, addr string) {
-	logger := util.InitLogging()
+	logger := utils.InitLogging()
 	sugar := logger.Sugar()
 	defer sugar.Sync()
 	server := StartServer(handler, coordHandler, servercfgs, addr)
@@ -33,7 +32,7 @@ func RunServer(handler messages.MessageHandlersServer, coordHandler coord.Coordi
 }
 
 func StartServer(handler messages.MessageHandlersServer, coordHandler coord.CoordinatorHandlerServer, servercfgs map[int64]*config.Server, addr string) *grpc.Server {
-	logger := util.InitLogging()
+	logger := utils.InitLogging()
 	sugar := logger.Sugar()
 	defer sugar.Sync()
 	id, myCfg := FindConfig(addr, servercfgs)
