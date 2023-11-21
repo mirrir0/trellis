@@ -7,6 +7,8 @@ import (
 
 	arg "github.com/alexflint/go-arg"
 
+	"go.uber.org/zap"
+
 	"github.com/31333337/bmrng/go/0kn/pkg/utils"
 )
 
@@ -57,13 +59,13 @@ func main() {
 
 	switch {
 	case args.Coordinator != nil:
-		LaunchCoordinator(*args.Coordinator, argParser)
+		LaunchCoordinator(*args.Coordinator, argParser, logger)
 
 	case args.Client != nil:
-		LaunchClient(*args.Client)
+		LaunchClient(*args.Client, logger)
 
 	case args.Server != nil:
-		LaunchServer(*args.Server)
+		LaunchServer(*args.Server, logger)
 
 	default:
 		argParser.WriteHelp(os.Stdout)
