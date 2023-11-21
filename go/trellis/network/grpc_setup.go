@@ -47,6 +47,7 @@ func StartServer(handler messages.MessageHandlersServer, coordHandler coord.Coor
 			"error generating X509 Key Pair",
 			"error", err,
 		)
+		sugar.Sync()
 		panic(err)
 	}
 	cred := credentials.NewServerTLSFromCert(&cert)

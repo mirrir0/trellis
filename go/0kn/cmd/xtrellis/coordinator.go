@@ -49,7 +49,7 @@ func LaunchCoordinator(args ArgsCoordinator, argParser *arg.Parser) {
 }
 
 func processArgs(args *ArgsCoordinator, argParser *arg.Parser) {
-	logger := utils.Getlogger()
+	logger := utils.GetLogger()
 	sugar := logger.Sugar()
 	defer sugar.Sync()
 
@@ -61,7 +61,7 @@ func processArgs(args *ArgsCoordinator, argParser *arg.Parser) {
 				args.GroupSize, args.NumGroups = config.CalcFewGroups2(args.F, args.NumServers)
 			}
 		} else {
-			sugar.Printf("Set groupsize or f")
+			sugar.Infof("Set groupsize or f")
 			argParser.WriteHelp(os.Stdout)
 			return
 		}
@@ -76,7 +76,7 @@ func processArgs(args *ArgsCoordinator, argParser *arg.Parser) {
 		if args.F != 0 {
 			args.NumLayers = config.NumLayers(args.NumUsers, args.F)
 		} else {
-			sugar.Printf("Set numlayers or f")
+			sugar.Infof("Set numlayers or f")
 			argParser.WriteHelp(os.Stdout)
 			return
 		}
