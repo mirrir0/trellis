@@ -12,7 +12,7 @@ var logger *log.Logger = nil
 var mu sync.Mutex
 var buf *bufio.Writer
 
-func InitLogger(id int) {
+func utils.Getlogger(id int) {
 	mu.Lock()
 	defer mu.Unlock()
 	if logger != nil {

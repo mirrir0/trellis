@@ -16,7 +16,6 @@ import (
 	"github.com/31333337/bmrng/go/0kn/pkg/utils"
 	"github.com/31333337/bmrng/go/trellis/config"
 	"github.com/31333337/bmrng/go/trellis/coordinator"
-	"go.uber.org/zap"
 )
 
 const (
@@ -30,10 +29,12 @@ const (
 	NETWORK_TYPE_REMOTE
 )
 
-func LaunchCoordinator(args ArgsCoordinator, argParser *arg.Parser, logger *zap.Logger) {
-	logger.Info("Started Launch Coordinator")
-	logger.Sync()
-	processArgs(&args, argParser, logger)
+func LaunchCoordinator(args ArgsCoordinator, argParser *arg.Parser) {
+	logger := utils.GetLogger()
+	sugar := logger.Sugar()
+	defer sugar.Sync()
+	sugar.Info("Started Launch Coordinator")
+	processArgs(&args, argParser)
 
 	switch {
 	case args.Config != nil:
@@ -47,7 +48,10 @@ func LaunchCoordinator(args ArgsCoordinator, argParser *arg.Parser, logger *zap.
 	}
 }
 
-func processArgs(args *ArgsCoordinator, argParser *arg.Parser, logger *zap.Logger) {
+func processArgs(args *ArgsCoordinator, argParser *arg.Parser) {
+	logger := utils.Getlogger()
+	sugar := logger.Sugar()
+	defer sugar.Sync()
 
 	if args.GroupSize == 0 {
 		if args.F != 0 {
@@ -57,7 +61,7 @@ func processArgs(args *ArgsCoordinator, argParser *arg.Parser, logger *zap.Logge
 				args.GroupSize, args.NumGroups = config.CalcFewGroups2(args.F, args.NumServers)
 			}
 		} else {
-			log.Printf("Set groupsize or f")
+			sugar.Printf("Set groupsize or f")
 			argParser.WriteHelp(os.Stdout)
 			return
 		}
@@ -72,7 +76,7 @@ func processArgs(args *ArgsCoordinator, argParser *arg.Parser, logger *zap.Logge
 		if args.F != 0 {
 			args.NumLayers = config.NumLayers(args.NumUsers, args.F)
 		} else {
-			log.Printf("Set numlayers or f")
+			sugar.Printf("Set numlayers or f")
 			argParser.WriteHelp(os.Stdout)
 			return
 		}
@@ -98,8 +102,6 @@ func processArgs(args *ArgsCoordinator, argParser *arg.Parser, logger *zap.Logge
 		args.NumClientServers = 0
 	}
 
-	sugar := logger.Sugar()
-	defer sugar.Sync()
 	sugar.Infow(
 		"args passed to xtrellis",
 		"args: %v", args,

@@ -2,10 +2,11 @@ package utils
 
 import (
 	"encoding/json"
+
 	"go.uber.org/zap"
 )
 
-func InitLogging() *zap.Logger {
+func GetLogger() *zap.Logger {
 	// TODO: get this from a config file
 	rawJSON := []byte(`{
 	  "level": "debug",
@@ -25,8 +26,6 @@ func InitLogging() *zap.Logger {
 		panic(err)
 	}
 	logger := zap.Must(cfg.Build())
-	defer logger.Sync()
 
-	logger.Info("logger initialization succeeded")
 	return logger
 }

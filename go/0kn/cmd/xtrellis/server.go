@@ -29,7 +29,7 @@ func runServer(args ArgsServer) {
 	serverPrivateFile := args.ServerPrivateFile
 	errors.Addr = addr
 
-	logger := utils.InitLogging()
+	logger := utils.GetLogger()
 	sugar := logger.Sugar()
 	defer sugar.Sync()
 	sugar.Infow(
