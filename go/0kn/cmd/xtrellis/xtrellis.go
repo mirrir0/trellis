@@ -60,7 +60,7 @@ func main() {
 
 	switch {
 	case args.Coordinator != nil:
-		LaunchCoordinator(*args.Coordinator, argParser, logger)
+		LaunchCoordinator(*args.Coordinator, argParser)
 
 	case args.Client != nil:
 		LaunchClient(*args.Client, logger)
