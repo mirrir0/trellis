@@ -281,8 +281,7 @@ func GetMessageForClient(clientId int64) ([]byte, error) {
 // This replaces `coordinator.Check` testing for message ids.
 // Note: There are duplicates (why?), so sort unique.
 func CheckFinalMessages(messages [][]byte, numExpected int) bool {
-	logger := utils.GetLogger()
-	sugar := logger.Sugar()
+	sugar := utils.GetSugaredLogger()
 	defer sugar.Sync()
 
 	// get a packet identifier that is unique among all packets of a round
@@ -396,8 +395,7 @@ func proxyStart(addrIn string) {
 func proxyHandleConnection(conn net.Conn) {
 	defer conn.Close()
 
-	logger := utils.GetLogger()
-	sugar := logger.Sugar()
+	sugar := utils.GetSugaredLogger()
 	defer sugar.Sync()
 
 	streamId := getStreamId()
@@ -487,9 +485,9 @@ func getStreamId() uint64 {
 // An HTTP server to serve data output
 // conceptual placeholder to get mixed data out of the gateway in lieu of more protocol
 func httpServerStart(addrOut string) {
-	logger := utils.GetLogger()
-	sugar := logger.Sugar()
+	sugar := utils.GetSugaredLogger()
 	defer sugar.Sync()
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		var id uint64 = 0
 

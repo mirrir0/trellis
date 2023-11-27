@@ -16,8 +16,7 @@ func LaunchClient(args ArgsClient) {
 	addr := args.Addr
 	errors.Addr = addr
 
-	logger := utils.GetLogger()
-	sugar := logger.Sugar()
+	sugar := utils.GetSugaredLogger()
 	defer sugar.Sync()
 	sugar.Infow(
 		"Launching client",

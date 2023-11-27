@@ -29,3 +29,7 @@ func GetLogger() *zap.Logger {
 
 	return logger
 }
+
+func GetSugaredLogger() *zap.SugaredLogger {
+	return GetLogger().Sugar()
+}

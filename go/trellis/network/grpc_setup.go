@@ -18,8 +18,7 @@ import (
 )
 
 func RunServer(handler messages.MessageHandlersServer, coordHandler coord.CoordinatorHandlerServer, servercfgs map[int64]*config.Server, addr string) {
-	logger := utils.GetLogger()
-	sugar := logger.Sugar()
+	sugar := utils.GetSugaredLogger()
 	defer sugar.Sync()
 	server := StartServer(handler, coordHandler, servercfgs, addr)
 	sigs := make(chan os.Signal, 1)
@@ -32,8 +31,7 @@ func RunServer(handler messages.MessageHandlersServer, coordHandler coord.Coordi
 }
 
 func StartServer(handler messages.MessageHandlersServer, coordHandler coord.CoordinatorHandlerServer, servercfgs map[int64]*config.Server, addr string) *grpc.Server {
-	logger := utils.GetLogger()
-	sugar := logger.Sugar()
+	sugar := utils.GetSugaredLogger()
 	defer sugar.Sync()
 	id, myCfg := FindConfig(addr, servercfgs)
 	if id < 0 {
